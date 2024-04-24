@@ -1,0 +1,11 @@
+.container {
+  display: inline-block;
+  width: 300px;
+  background-color: antiquewhite;
+}
+
+.like-list {
+  display: inline-block;
+  width: 100;
+  background-color: aquamarine;
+}

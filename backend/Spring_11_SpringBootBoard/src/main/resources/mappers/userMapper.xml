@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 네임스페이스에 DAO 풀패키지명을 작성 -->
+<mapper namespace="com.ssafy.board.model.dao.UserDao">
+	<select id="selectOne" parameterType="Map" resultType="User">
+		SELECT id, name
+		FROM users
+		WHERE id = #{id} AND password = #{password}
+	</select>
+	
+	<insert id="insertUser" parameterType="User">
+		INSERT INTO users
+		VALUES (#{id}, #{password}, #{name}, #{curriculumCode})
+	</insert>
+	
+	<select id="selectAll">
+		SELECT u.id AS id, u.password as password, u.name as name, c.name as curriculumName
+		FROM users u, curriculum c
+		WHERE u.curriculum_code = c.code
+	</select>
+</mapper>

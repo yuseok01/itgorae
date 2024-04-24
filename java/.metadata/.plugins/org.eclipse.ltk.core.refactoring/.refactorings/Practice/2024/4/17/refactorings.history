@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;BaekJoon_그리디.BackJoon_그리디5_11047_강의실배정&apos; to &apos;BackJoon_그리디5_11047_동전0&apos;&#x0D;&#x0A;- Original project: &apos;Practice&apos;&#x0D;&#x0A;- Original element: &apos;BaekJoon_그리디.BackJoon_그리디5_11047_강의실배정&apos;&#x0D;&#x0A;- Renamed element: &apos;BaekJoon_그리디.BackJoon_그리디5_11047_동전0&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;BackJoon_그리디5_11047_강의실배정&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;BaekJoon_그리디{BackJoon_그리디5_11047_강의실배정.java[BackJoon_그리디5_11047_강의실배정" matchStrategy="1" name="BackJoon_그리디5_11047_동전0" qualified="false" references="true" similarDeclarations="false" stamp="1713881642232" textual="false" version="1.0"/>
+</session>
