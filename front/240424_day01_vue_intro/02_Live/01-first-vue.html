@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ message }}</h1>
+    <button @click="count++">
+      Count is: {{ count }}
+    </button>
+  </div>
+  <script>
+    const { createApp, ref } = Vue
+    const app = createApp({
+      setup() { //createApp밑에서 setup함수에서 리턴해야함 ! 
+        const message = ref('Hello vue!') //ref함수에 넣기
+        const count = ref(0)
+
+        return {
+          message,
+          count
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

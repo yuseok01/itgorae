@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 
+  1. CDN 작성 
+  2. createApp 생성 
+  3. <div id="app"> 생성 
+  4. mount 연결 
+  5. setup 함수 message
+  6. 콧수염방식 끄내기
+  7. 자바스크립트 표현식도 가능
+ -->
+<body>
+  <div id="app">
+    <!-- div id를 app로 -->
+    <h1>{{ message }}</h1>
+    <h1>{{ message.split('').reverse().join('') }}</h1>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- cdb작성 -->
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      //createApp 을 app으로 사용하겠다.
+      setup() {
+        // 그안에 setup함수 
+        const message = ref('Hello vue!')
+        console.log(message)        // 객체
+        console.log(message.value) // String
+        return {
+          message
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
