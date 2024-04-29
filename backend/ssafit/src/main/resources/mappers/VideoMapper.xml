@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.ssafit.model.dao.VideoDao">
+	<!-- 전체 목록 조회 -->
+	<select id="selectVideoList" resultType="Video">
+		SELECT * FROM videos
+	</select>
+		
+	<!-- 부위별 목록 조회 -->
+	<select id="selectVideoByPart" resultType="Video" parameterType="String">
+		SELECT * FROM videos
+		WHERE part = #{part}
+	</select>
+	
+	<!-- 정렬 조회 -->
+	<select id="selectOrderByViewCnt" resultType="Video">
+		SELECT * FROM videos
+		ORDER BY view_cnt DESC
+	</select>
+	
+	<!-- 상세 조회 -->
+	<select id="selectVideoById" resultType="Video" parameterType="int">
+		SELECT * FROM videos
+		WHERE video_id = #{videoId}
+	</select>
+	
+	<!-- 상세 리뷰 조회 -->
+	<select id="selectVideoReviewById" resultType="Review" parameterType="int">
+		SELECT * FROM reviews
+		WHERE video_id = #{videoId}
+	</select>
+</mapper>
