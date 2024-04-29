@@ -1,0 +1,79 @@
+<!-- binding-html-classes.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <style>
+    .active {
+      color: crimson;
+    }
+    
+    .text-primary {
+      color: blue;
+    }
+    </style>
+</head>
+<body>
+  <div id="app">
+    
+    <!-- 1. Binding to Objects -->
+    <!-- 1-a div.  -->
+    <div :class="{ active: isActive }">Text</div>
+    
+    <!-- 1-b div.static.text-primary -객체, string 모두 활용 -->
+    <div class="static" :class="{ active: isActive, 'text-primary': hasInfo }">Text</div>
+    
+    <!-- 1-c div.static.text-primary -ref unwrapping 활용 -->
+    <div class="static" :class="classObj">Text</div>
+    
+    
+    <!-- 2. Binding to Arrays -->
+    
+    <!-- 2-a div.active.crimson 만들기 -배열 구조분해 활용-->
+    <div :class="[activeClass, infoClass]">Text</div>
+    
+    <!-- 2-b div.crimson -객체 구조분해, 변수 바로 활용 -->
+    <div :class="[{ active: isActive }, infoClass]">Text</div>
+    
+  </div>
+  
+  <!-- cdn -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 코드를 자유롭게 작성해보세요.
+    const { createApp, ref } = Vue
+    
+    const app = createApp({
+      setup() {
+        
+        const isActive = ref(false)
+        const hasInfo = ref(true)
+
+        // ref는 반응 객체의 속성으로 액세스되거나 변경될 때 자동으로 래핑 해제
+        const classObj = ref({
+          active: isActive,
+          'text-primary': hasInfo
+        })
+
+        const activeClass = ref('active')
+        const infoClass = ref('crimson')
+
+        return {
+          isActive,
+          hasInfo,
+          classObj,
+          activeClass,
+          infoClass
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

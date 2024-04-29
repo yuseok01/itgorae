@@ -1,0 +1,61 @@
+<!-- binding-inline-styles.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 1. Binding to Objects -->
+    <!-- 1-a style="color: pink; font-size: 1rem"-->
+    <div :style="{ color: activeColor, fontSize: fontSize + 'rem' }">Text</div>
+    
+    <!-- 1-b style="font-size:1rem;"-->
+    <div :style="{ 'font-size': fontSize + 'rem' }">Text</div>
+    
+    <!-- 1-c style="color: pink; font-size: 1rem" 객체사용하세용-->
+    <div :style="styleObj1">Text</div>
+    
+    <!-- 2. Binding to Arrays -->
+    <div :style="[styleObj1, styleObj2]">Text</div>
+  </div>
+  
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 코드를 자유롭게 작성하세요.
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const activeColor = ref('pink')
+
+        const fontSize = ref(1)
+
+        const styleObj1 = ref({
+          color: activeColor,
+          fontSize: fontSize.value + 'rem'
+        })
+
+        const styleObj2 = ref({
+          color: 'skyblue',
+          border: '1px solid black'
+        })
+
+        return {
+          activeColor,
+          fontSize,
+          styleObj1,
+          styleObj2
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

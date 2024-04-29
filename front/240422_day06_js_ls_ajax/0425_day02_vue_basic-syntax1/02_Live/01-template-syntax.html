@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 1. 몸풀기 -->
+    <!-- 1-a. 콧수염 활용해서 msg 값 출력 -->
+    <p>msg: {{ msg }}</p>
+    
+    <!-- 1-b. 콧수염 활용해서 12가 출력 -->
+    <p>{{ number + 1 }}</p>
+    
+    <!-- 1-c. 삼항 연산자 활용해보기 -->
+    <p>{{ seen ? 'YES' : 'NO' }}</p>
+    
+    <!-- 1-d. 각반 강사님의 성함 거꾸로 출력해보기 -->
+    <p>{{ yours.split('').reverse().join('') }}</p>
+    
+    <!-- 2. v-html rawHTML 보여주기, Element 확인-->
+    <div v-html="rawHtml"></div>
+    
+    <!-- 3. v-bind를 사용해서 id="my-id" 만들기, Element 확인 -->
+    <div v-bind:id="dynamicId"></div>
+    
+    <!-- 4. v-bind의 약어를 사용해서 div.i-like-you 만들기 -->
+    <div :class="`i-${myClass}-you`"></div>
+  </div>
+  
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+    
+    const app = createApp({
+      setup() {
+        // 1-a. 콧수염 활용해서 msg 값 출력
+        const msg = ref('ㅆㅏㅍㅣ')
+        
+        // 1-b. 콧수염 활용해서 12가 출력
+        const number = ref(11)
+        
+        // 1-c. 삼항 연산자 활용해서 'NO' 출력
+        const seen = ref(false)
+
+        // 1-d. 각반 강사님의 성함 거꾸로 출력해보기
+        const yours = ref('헤일리')
+
+        // 2. v-html rawHTML 보여주기
+        const rawHTML = ref('<span style="color:red">빨간색</span>')
+        
+        // 3. v-bind를 사용해서 id="my-id" 만들기
+        const dynamicId = ref('my-id')
+
+        // 4. v-bind의 약어를 사용해서 div.love-list 만들기
+        const myClass = ref('like')
+
+        return {
+          msg,
+          number,
+          seen,
+          yours,
+          rawHTML,
+          dynamicId,
+          myClass,
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <style>
+    #app > .box {
+      margin: 2rem auto;
+    }
+
+    h4 {
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="box">
+      <h4>1. single checkbox </h4>
+      <input type="checkbox" id="checkbox" v-model="checked">
+      <label for="checkbox">{{ checked }}</label>
+    </div>
+
+    <div class="box">
+      <h4>2. multiple checkbox</h4>
+      <div>Checked names: {{ checkedNames }}</div>
+      
+      <input type="checkbox" id="alice" value="Alice" v-model="checkedNames">
+      <label for="alice">Alice</label>
+
+      <input type="checkbox" id="bella" value="Bella" v-model="checkedNames">
+      <label for="bella">Bella</label>
+    </div>
+
+    <div class="box">
+      <h4>3. single select</h4>
+      <div>Selected: {{ selected }}</div>
+      <select v-model="selected">
+        <option disabled value="">Please select one</option>
+        <option>Alice</option>
+        <option>Bella</option>
+        <option>Cathy</option>
+      </select>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 코드를 자유롭게 작성하세요.
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const checked = ref(false)
+        const checkedNames = ref([])
+        const selected = ref('')
+
+        return {
+          checked,
+          checkedNames,
+          selected
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
