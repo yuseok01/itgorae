@@ -1,0 +1,65 @@
+<!-- computed.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <h2>남은 할 일</h2>
+    <!-- text interpolation으로 template에 작성-->
+    <!-- computed 사용 -->
+    <p>restOfTodos: {{ restOfTodos }}</p>
+
+    <!-- method 사용 -->
+    <p>getRestOfTodos(): {{ getRestOfTodos() }}</p>
+
+   
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 코드를 자유롭게 작성하세용
+    const { createApp, ref, computed } = Vue
+
+    const app = createApp({
+      setup() {
+        const todos = ref([
+          { text: '시험은 이미 지나갔어요. 잊어버리기' },
+          { text: 'Vue 공부' },
+          { text: '운동' }
+        ])
+
+        // computed를 사용해서 표현해보기
+        // computed 함수 썼으니깐, 우리가 꼭 해야하는건?
+        const restOfTodos = computed(() => {
+          return todos.value.length > 0 ? '아직 할 일이 있습니다.' : '집에 갈 수 있습니다.'
+        })
+
+        // 함수 생성해서 사용해보기
+        const getRestOfTodos = function() {
+          return todos.value.length > 0 ? '아직 할 일이 있습니다.' : '집에 갈 수 있습니다.'
+        }
+
+        
+
+
+        // 리턴 해줘야겠죠?
+        return {
+          todos,
+          restOfTodos,
+          getRestOfTodos
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

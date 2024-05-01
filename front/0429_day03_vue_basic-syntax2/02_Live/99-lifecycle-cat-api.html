@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <!-- 다음 코드는 실행되지 않습니다. 왜 그런걸까요? 찾아보세요 -->
+  <h4>Lifecycle hooks cat api</h4>
+  <div id="app">
+    <!-- v-on click getCatImage -->
+    <button @click="getCatImage">고양이보여줘</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg. com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, onMounted } = Vue
+    const URL = 'https://api.thecatapi.com/v1/images/search'
+    const btn = document.querySelector('button')
+
+    const app = createApp({
+      setup() {
+        const getCatImage = function () {
+          // axios 활용해보기 (아직 안배움)
+          axios({
+            method: 'get',
+            url: URL,
+          })
+          // fetch처럼 .then 이후에 잘 들어오면 동작
+            .then((response) => {
+              imgUrl = response.data[0].url
+              return imgUrl
+            })
+          // 이미지 잘 들어오면 dom 트리에 추가해주기
+          // 체이닝!!!
+            .then((imgData) => {
+              imgElem = document.createElement('img')
+              imgElem.setAttribute('src', imgData)
+              imgElem.style.width = '20rem';
+              document.body.appendChild(imgElem)
+            })
+          // 실패하면 콘솔창에 에러 메시지 보여주기
+            .catch((error) => {
+              console.log('실패했다옹')
+            })
+        }
+
+        // mounted 시점에 api 요청하기
+        onMounted(() => {
+          getCatImage()
+        })
+
+        return {
+          getCatImage
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

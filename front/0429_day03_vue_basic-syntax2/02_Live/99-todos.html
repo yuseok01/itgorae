@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-on submit.prevent addTodo -->
+    <form >
+      <!-- v-model newTodo -->
+      <input >
+      <button>Add Todo</button>
+    </form>
+    <ul>
+      <!-- todo in todos -->
+      <!-- key - todo.id -->
+      <li >
+        {{ todo.text }}
+        <!-- v-on click removeTodo -->
+        <!-- 매개변수가 있는 콜백함수는 어떻게 써야할까요? -->
+        <button >X</button>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 코드를 자유롭게 작성해보세요
+    
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        let id = 0
+
+        const newTodo = ref(null)
+        const todos = ref([
+          { id: id++, text: 'Learn HTML' },
+          { id: id++, text: 'Learn JS' },
+          { id: id++, text: 'Learn Vue' }
+        ])
+
+        // addTodo 완성
+        // todos 배열에 할일을 객체로 추가
+        // input의 value를 가져온 다음에 우리가 꼭 해줘야하는건? 
+        const addTodo 
+
+
+
+        // removeTodo(todo) 완성
+        // filter 사용해보기 
+        const removeTodo
+
+
+
+        // 리턴 안시키면 작동 안됨
+        return {
+          
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

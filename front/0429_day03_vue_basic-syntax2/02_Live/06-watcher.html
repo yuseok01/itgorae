@@ -1,0 +1,57 @@
+<!-- watcher.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <h4>Watcher</h4>
+  <div id="app">
+    <!-- 1 click event -->
+    <button @click="count++">Add 1</button>
+    <p>Count: {{ count }}</p>
+
+    <!-- 2 v-model -->
+    <input v-model="message">
+    <p>Message length: {{ messageLength }}</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, watch } = Vue
+
+    const app = createApp({
+      setup() {
+        const count = ref(0)
+        const message = ref('')
+        const messageLength = ref(0)
+
+        // 1. click event
+        const countWatch = watch(count, (nv, ol) => {
+          console.log(`newValue: ${nv}, oldValue: ${ol}`)
+        })
+
+        // 2. v-model
+        const messageWatch = watch(message, (nv, ol) => {
+          messageLength.value = nv.length
+          console.log(`newValue: ${nv.length}, oldValue: ${ol.length}`)
+        })
+
+        return {
+          count,
+          message,
+          messageLength
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

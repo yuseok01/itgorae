@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Maintaining State with key -->
+    <h4>Maintaining State with key</h4>
+    <!-- item in items -->
+    <!-- key - item.id -->
+    <div v-for="item in items" :key="item.id">
+      <!-- content -->
+      {{ item.id }} / {{ item.name }}
+    </div>
+    <hr>
+
+    <!-- [Bad] v-for with v-if -->
+    <!-- 아래 25- 32을 주석 안되어있으면 아예 실행 안됨 -->
+    <!-- <h4>[Bad] v-for with v-if </h4>
+    <ul>
+      <li v-for="todo in todos" v-if="!todo.isComplete" :key="todo.id">
+        {{ todo.name }}
+      </li>
+    </ul>
+    <hr>
+     -->
+
+
+    <!-- [Good] v-for with v-if -->
+    <h4>[Good] v-for with v-if </h4>
+    <ul>
+      <!-- item in items -->
+      <!-- key - item.id -->
+      <!--for 문을 template -->
+      <template v-for="todo in todos" :key="todo.id">
+        <!-- !todo.isComplete -->
+        <!-- 조건을  -->
+        <li v-if="!todo.isComplete">
+          {{ todo.name }}
+        </li>
+      </template>
+    </ul>
+    
+    <!-- [Good] v-for with v-if (computed)-->
+    <h4>[Good] v-for with v-if (computed) </h4>
+    <ul>
+      <!-- todo in completeTodos -->
+      <!-- key - todo,.id -->
+      <li v-for="todo in completeTodos" :key="todo.id">
+        {{ todo.name }}
+      </li>
+    </ul>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref , computed } = Vue
+
+    const app = createApp({
+      setup() {
+        let id = 0
+
+        const todos = ref([
+          { id: id++, name: '복습', isComplete: true },
+          { id: id++, name: '예습', isComplete: false },
+          { id: id++, name: '저녁식사', isComplete: true },
+          { id: id++, name: '테니스', isComplete: false }
+        ])
+
+        // computed 사용해서 completedTodos 완성
+        // computed 썻으니깐 뭐해야할까요? 
+        const completeTodos = computed(() => {
+          return todos.value.filter((todo) => !todo.isComplete)
+        })
+
+        // 리턴 
+        return {
+          todos,
+          completeTodos,
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

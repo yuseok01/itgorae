@@ -1,0 +1,50 @@
+<!-- v-for-with-key -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Maintaining State with key -->
+    <h4>Maintaining State with key</h4>
+    <!-- item in items -->
+    <!-- key - item.id -->
+    <div v-for="item in items" :key="item.id">
+      <!-- content -->
+      {{ item.id }} / {{ item.name }}
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        let id = ref
+
+        const items = ref([
+          { id: id++, name: 'Alice' },
+          { id: id++, name: 'Bella' },
+          { id: id++, name: 'Cathy' },
+          { id: id++, name: 'Dan' },
+        ])
+
+
+        return {
+          items,
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

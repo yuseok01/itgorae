@@ -1,0 +1,71 @@
+<!-- conditional-rendering.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- 코드를 자유롭게 작성해보세요. -->
+
+
+    <!-- if else -->
+    <h4>[v-if, else] - 6반의 진우</h4>
+    <!-- v-if, v-else 활용 -->
+    <p v-if="isSeen">true일때 보여요</p>
+    <p v-else>false일때 보여요</p>
+    <button @click="isSeen = !isSeen">토글: {{ isSeen }}</button>
+    <hr>
+
+    <!-- else if -->
+    <h4>[v-if, else-if, else] - 5반의 보경, </h4>
+    <!-- v-if, v-else-if v-else 활용 -->
+    <div v-if="name === 'Alice'">Alice입니다</div>
+    <div v-else-if="name === 'Bella'">Bella입니다</div>
+    <div v-else-if="name === 'Cathy'">Cathy입니다</div>
+    <div v-else>아무도 아닙니다.</div>
+    <hr>
+
+    <!-- v-if on <template> -->
+    <!-- template 하나의 wrapper  -->
+    <h4>[v-if template]</h4>
+    <template v-if="name === 'Daisy'">
+      <div>{{ name }}입니다</div>
+      <div>나이는 20살입니다</div>
+    </template>
+    
+    <!-- v-show -->
+    <h4>[v-show]</h4>
+    <div v-show="isShow">v-show</div>
+    <!-- 보이지만 않을뿐이지 DOM에 있다. 즉, ELEMENT 확인 가능 -->
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 수정할 코드 없음!
+    const { createApp, ref } = Vue
+    
+    const app = createApp({
+      setup() {
+        const isSeen = ref(true)
+        const name = ref('Daisy') // 1. Alice로 바꾸면? 2. Bella/Cathy로 바꾸면? 
+        const isShow = ref(true)
+
+        return {
+          isSeen,
+          name,
+          isShow,
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

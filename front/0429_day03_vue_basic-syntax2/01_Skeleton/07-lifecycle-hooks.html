@@ -1,0 +1,50 @@
+<!-- lifecycle-hooks.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <h4>Lifecycle hooks</h4>
+  <div id="app">
+    <button @click="count++">Add 1</button>
+    <p>Count: {{ count }}</p>
+    <p>{{ message }}</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // onMounted, onUpdated 추가
+    const { createApp, ref, onMounted, onUpdated } = Vue
+
+    const app = createApp({
+      setup() {
+        const count = ref(0)
+        const message = ref(null)
+
+        onMounted(() => {
+          console.log('mounted')
+        })
+
+        onUpdated(() => {
+          message.value = 'updated!'
+        })
+
+        return {
+          count,
+          message
+        }
+      },
+    })
+
+    app.mount('#app')
+
+  </script>
+</body>
+
+</html>
