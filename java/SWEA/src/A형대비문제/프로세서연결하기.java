@@ -1,73 +1,81 @@
 package A형대비문제;
 
-import java.awt.Point;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
-
+import java.io.*;
+import java.util.*;
+ 
 public class 프로세서연결하기 {
-	private static int[][] map;
-	private static int n;
-	private static int [] dx = {-1,1,0,0};
-	private static int [] dy = {0,0,-1,1};
-	private static int cnt;
-	
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st; 
-		
-		int tc = Integer.parseInt(br.readLine());
-		n = Integer.parseInt(br.readLine());
-		map = new int[n][n];
-		
-		for(int i = 0 ; i < n ; i++) {
-			st = new StringTokenizer(br.readLine());
-			for(int j = 0 ; j < n ; j++) {
-				map[i][j] = Integer.parseInt(st.nextToken());
-				if(i==0 || j==0 || i==(n-1)||j==(n-1)) {
-					map[i][j] = 2;
-				}
-			}
-		}
-		
-		for(int i = 0 ; i< n ; i++) {
-			for(int j = 0 ; j < n ; j++) {
-				if(map[i][j]==1) {
-					cnt = Integer.MAX_VALUE;
-					dfs(i,j);
-				}
-			}
-		}
-	}
-
-	static void dfs(int x, int y) {
-			/*
-			 * 1.boolean을 어디다가 초기화할지
-			 * 2.cnt를 어디서 초기화할지
-			 * 3.minCnt를 어디서 볼지
-			 */
-		boolean [][] checked = new boolean[n][n];
-		checked[x][y] = true;
-		for(int k = 1; k <=4 ; k++) {
-			for(int l = 1; l < n-1 ; l++) {
-				int idx = x + (l*dx[k]);
-				int idy = y + (l*dy[k]);
-				
-				if(0<= idx && idx < n && 0<=idy && idy < n ) {//벽이면 
-					dfs(idx,idy);
-				}
-				else {
-					
-				}
-			}
-		}
-			
-		
-		
-		
-	}
+    static int N;
+    static int count;
+    static int core[][];
+    static int map[][];
+    static int dx[] = {0, 1, 0, -1};
+    static int dy[] = {1, 0, -1, 0};
+    static int max_power;
+    static int max_line = Integer.MAX_VALUE;
+    static void dfs(int cnt, int connect, int line) {
+        if(cnt == count) {
+            if(connect > max_power) {max_power = connect; max_line = line;}
+            else if(connect == max_power && max_line > line) {max_line = line;}
+            return;
+        }
+         
+        int x =core[cnt][0]; int y = core[cnt][1];
+        f: for(int d = 0; d<4; d++) {
+            for(int k=1; k<N; k++) {
+                int nx = x+k*dx[d];
+                int ny = y+k*dy[d];
+                if(nx<0 || ny<0 || nx>=N || ny>= N) { // 끝에 도달 - 연결 가능
+                    nx = x ; ny = y; int num =0;
+                    while(true) {
+                        nx += dx[d]; ny += dy[d];
+                        if(nx<0 || ny<0 || nx>=N || ny>= N) {
+                            dfs(cnt+1, connect +1, line+num); break;
+                        }
+                        map[nx][ny] = 2; num++;
+                    }
+                    while(true) {
+                        nx -= dx[d]; ny -= dy[d];
+                        if(map[nx][ny] == 1) break;
+                        map[nx][ny] = 0;
+                    }
+                    continue f;
+                }
+                else if(map[nx][ny] == 1 || map[nx][ny] == 2) continue f;
+            }
+        }
+        dfs(cnt+1, connect, line);
+    }
+    public static void main(String[] args) throws Exception {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        int T = Integer.parseInt(bf.readLine());
+        for(int t=1; t<=T; t++) {
+            N = Integer.parseInt(bf.readLine());
+            map = new int[N][N];
+            count = 0;
+            for(int i=0; i<N; i++) {
+                StringTokenizer st = new StringTokenizer(bf.readLine(), " ");
+                for(int j=0; j<N; j++) {
+                    map[i][j] = Integer.parseInt(st.nextToken());
+                    if(map[i][j] == 1) {
+                        if(i != 0 && j != 0 && i != N-1 && j != N-1) count++;
+                    }
+                }
+            }
+            // 입력 받음
+            core = new int[count][2];
+            int cnt = 0; int temp =0;
+            for(int i=0; i<N; i++) {
+                for(int j=0; j<N; j++) {
+                    if(map[i][j] == 1) {
+                        if(i != 0 && j != 0 && i != N-1 && j != N-1) core[cnt++] = new int[] {i, j};
+                    }
+                }
+            }
+						max_line = Integer.MAX_VALUE; max_power = 0;
+            dfs(0, 0, 0);
+            sb.append("#").append(t).append(" ").append(max_line).append("\\n");
+        }
+        System.out.println(sb);
+    }
 }
