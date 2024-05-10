@@ -82,6 +82,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\SSAFY\Downloads\SSAFIT"/>
 			<item value="C:\Users\SSAFY\Desktop\itgorae\java\SWEA"/>
 			<item value="C:\Users\SSAFY\Desktop\itgorae\java\Practice"/>
 			<item value="C:\Users\user\Desktop\itgorae\java\SWEA"/>
