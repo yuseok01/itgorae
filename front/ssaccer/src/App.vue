@@ -4,8 +4,14 @@ import TheView from '@/layouts/TheView.vue';
 </script>
 
 <template>
-  <TheHeader></TheHeader>
-  <TheView></TheView>
+  <div id="app">
+    <TheHeader></TheHeader>
+    <TheView></TheView>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.app {
+  background-color: #000;
+}
+</style>
