@@ -3,7 +3,7 @@
 
 	<AppError v-else-if="error" :message="error.message" />
 
-	<div v-else>
+	<div v-else class="container py-4">
 		<h2>게시글 수정</h2>
 		<hr class="my-4" />
 		<AppError v-if="editError" :message="editError.message" />
@@ -80,4 +80,8 @@ const edit = () => {
 const goDetailPage = () => router.push({ name: 'PostDetail', params: { id } });
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.container {
+	background-color: rgba(255, 255, 255, 0.5); /* 흰색 배경과 투명도 0.5 설정 */
+}
+</style>

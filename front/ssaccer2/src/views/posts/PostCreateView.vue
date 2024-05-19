@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<h2 @click="visibleForm = !visibleForm">게시글 등록</h2>
+	<div class="container py-4">
+		<h2 @click="visibleForm = !visibleForm">이적 시장</h2>
 		<hr class="my-4" />
 		<AppError v-if="error" :message="error.message" />
 		<PostForm
@@ -85,4 +85,8 @@ const goListPage = () => router.push({ name: 'PostList' });
 const visibleForm = ref(true);
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.container {
+	background-color: rgba(255, 255, 255, 0.5); /* 흰색 배경과 투명도 0.5 설정 */
+}
+</style>

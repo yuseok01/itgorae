@@ -58,13 +58,7 @@
 						</li>
 					</ul>
 					<div class="d-flex">
-						<button
-							class="btn btn-outline-light fs-4"
-							type="button"
-							@click="goPage"
-						>
-							글쓰기
-						</button>
+						<button class="btn" type="button" @click="goPage">글쓰기</button>
 					</div>
 				</div>
 			</div>
@@ -123,5 +117,16 @@ const goPage = () => {
 
 .navbar-menu li:hover {
 	font-weight: bold;
+}
+.btn {
+	color: #fff;
+	font-weight: bold;
+	padding: 10px 30px;
+	border-radius: 24px;
+	border: 1px solid #004fff;
+}
+.btn:hover {
+	background-color: #004fff;
+	border: 1px solid #004fff;
 }
 </style>

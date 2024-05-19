@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container py-4">
 		<h2>li 태그로 팀 board 나열 대전 신청</h2>
 		<p>{{ $route.path }}</p>
 		<button class="btn btn-primary" @click="$router.push('/')">
@@ -31,4 +31,8 @@ counter.value = 100;
 // increment();
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.container {
+	background-color: rgba(255, 255, 255, 0.5); /* 흰색 배경과 투명도 0.5 설정 */
+}
+</style>

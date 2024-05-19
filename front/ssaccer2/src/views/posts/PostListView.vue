@@ -1,6 +1,7 @@
 <template>
-	<div>
+	<div class="container py-4">
 		<h2>게시글 목록</h2>
+
 		<hr class="my-4" />
 
 		<PostFilter
@@ -119,4 +120,8 @@ const openModal = ({ title, content, createdAt }) => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.container {
+	background-color: rgba(255, 255, 255, 0.5); /* 흰색 배경과 투명도 0.5 설정 */
+}
+</style>

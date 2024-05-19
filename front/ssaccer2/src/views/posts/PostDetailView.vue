@@ -1,9 +1,9 @@
 <template>
-	<AppLoading v-if="loading" />
+	<AppLoading v-if="loading" class="container py-4" />
 
-	<AppError v-else-if="error" :message="error.message" />
+	<AppError v-else-if="error" :message="error.message" class="container py-4" />
 
-	<div v-else>
+	<div v-else class="container py-4">
 		<h2>{{ post.title }}</h2>
 		<p>id: {{ props.id }}, isOdd: {{ isOdd }}</p>
 		<p>{{ post.content }}</p>
@@ -117,4 +117,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.container {
+	background-color: rgba(255, 255, 255, 0.5); /* 흰색 배경과 투명도 0.5 설정 */
+}
+</style>
