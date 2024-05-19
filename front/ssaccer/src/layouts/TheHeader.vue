@@ -36,11 +36,10 @@ a {
 * {
   box-sizing: border-box;
 }
-.container {
+.mp4 {
   background-color: #000;
   z-index: 1;
 }
-
 // 반응형 백그라운드 비디오
 .video-wrap {
   position: absolute;
@@ -66,7 +65,7 @@ header {
   position: relative;
   z-index: 2;
 }
-.navbar {
+.custom {
   display: flex;
   justify-content: space-between;
   align-items: center;

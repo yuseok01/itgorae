@@ -42,7 +42,7 @@ public class BaekJoon_4_1613_역사 {
 			st = new StringTokenizer(br.readLine());
 			int a = Integer.parseInt(st.nextToken());
 			int b = Integer.parseInt(st.nextToken());
-			if(historyTable[a][b] ==1 ) {
+			if(historyTable[a][b] ==1) {
 				System.out.println(-1);
 			}else if(historyTable[b][a]== 1) {
 				System.out.println(1);
