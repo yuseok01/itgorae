@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.ssaccer.model.dao.TeamDao">
+	<select id="selectAll">
+		SELECT * FROM TEAM
+	</select>
+
+	<select id="selectOne">
+		SELECT * FROM TEAM
+		WHERE team_id = ${teamId}
+	</select>
+
+	<insert id="insertTeam">
+		INSERT INTO TEAM (team_name)
+		VALUE (#{teamName});
+	</insert>
+
+	<select id="selectLastId">
+		SELECT team_id
+		FROM TEAM
+		ORDER BY team_id DESC
+		LIMIT 1
+	</select>
+
+	<delete id="deleteTeam" parameterType="int">
+		DELETE FROM TEAM
+		WHERE team_id = ${teamId}
+	</delete>
+
+	<update id="updateTeam" parameterType="Team">
+		UPDATE TEAM
+		SET team_name = #{teamName}, team_img = #{teamImg}, region = #{region}, match_time = #{matchTime}, home_stadium = #{homeStadium}
+		WHERE team_id = ${teamId};
+	</update>
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.ssaccer.model.dao.MatchRequestDao">
+
+	<!-- 매치 신청 -->
+	<insert id="insertRequest" parameterType="MatchRequest">
+		INSERT INTO match_request (team_id_from, team_id_to)
+		VALUES
+		(${teamIdFrom}, ${teamIdTo});
+	</insert>
+
+	<!-- 상세 게시글 조회 -->
+	<select id="selectById" parameterType="int">
+		SELECT *
+		FROM match_request
+		WHERE team_id_to = ${teamId};
+	</select>
+
+	<!-- 게시글 삭제 -->
+	<delete id="deleteRequest" parameterType="int">
+		DELETE FROM match_request
+		WHERE match_request_id = ${matchRequestId};
+	</delete>
+	
+	<select id="selectMatchRequest" parameterType="MatchRequest">
+		SELECT *
+		FROM match_request
+		WHERE team_id_from = ${teamIdFrom} AND team_id_to = ${teamIdTo}
+		LIMIT 1;
+	</select>
+</mapper>

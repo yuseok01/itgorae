@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.ssafy.ssaccer.model.dao.UserRecruitmentBoardDao">
+
+	<!-- 전체 게시글 조회 및 검색기능 -->
+	<!-- SELECT id, content, writer, title, view_cnt, date_format(reg_date, 
+		'%Y-%M-%d') AS reg_date -->
+	<!-- 동적쿼리(검색 조건) -->
+	<!-- <if test="key != 'none'"> WHERE ${key} LIKE concat('%', #{word}, '%') 
+		</if> -->
+
+	<!-- 동적쿼리(정렬 조건) -->
+	<!-- <if test="orderBy != 'none'"> ORDER BY ${orderBy} ${orderByDir} </if> -->
+	<select id="search" resultType="UserRecruitmentBoard"
+		parameterType="SearchCondition">
+		SELECT * FROM user_recruitment_board
+		<where>
+			<if test="key != 'none'">
+				AND ${key} LIKE CONCAT ('%', #{word}, '%')
+			</if>
+		</where>
+		<!-- 동적쿼리(정렬 조건) -->
+		<if test="orderBy != 'none'">
+			ORDER BY ${orderBy} ${orderByDir}
+		</if>
+	</select>
+
+	<!-- 상세 게시글 조회 -->
+	<select id="selectOne" parameterType="int">
+		SELECT *
+		FROM
+		user_recruitment_board
+		WHERE user_recruitment_id = ${id};
+	</select>
+
+	<!-- 게시글 등록 -->
+	<insert id="insertBoard" keyProperty="userRecruitmentId"
+		useGeneratedKeys="true">
+		INSERT INTO user_recruitment_board (user_id, title, content)
+		VALUES (${userId}, #{title}, #{content});
+		<!-- user의 team_id, position 참조 -->
+		<!-- UPDATE user_recruitment_board urb
+		LEFT JOIN user ON urb.user_id = user.user_id
+		SET urb.team_id = user.team_id, urb.position = user.position; -->
+		<!-- team의 이름, 지역 참조 -->
+		<!-- UPDATE user_recruitment_board urb
+		LEFT JOIN team ON urb.team_id = team.team_id
+		SET urb.team_name = team.team_name, urb.region = team.region; -->
+	</insert>
+
+
+	<!-- 게시글 삭제 -->
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM user_recruitment_board
+		WHERE user_recruitment_id = #{id};
+	</delete>
+
+	<!-- 조회수 증가 -->
+	<!-- <update id="updateViewCnt" parameterType="int"> UPDATE team_recruitment_board 
+		SET view_cnt = view_cnt+1 WHERE team_recruitment_id = #{id}; </update> -->
+
+	<!-- 게시글 수정 -->
+	<update id="updateBoard">
+		UPDATE user_recruitment_board
+		SET title = #{title}, content = #{content}
+		<!-- <if test="status != ''">
+			, status = #{status}
+		</if> -->
+		WHERE user_recruitment_id = ${userRecruitmentId};
+	</update>
+</mapper>

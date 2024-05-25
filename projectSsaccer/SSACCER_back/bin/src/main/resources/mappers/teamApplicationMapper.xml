@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.ssaccer.model.dao.TeamApplicationDao">
+
+	<!-- 가입 신청 -->
+	<insert id="insertApplication" parameterType="TeamApplication">
+		INSERT INTO TEAM_APPLICATION
+		(recruitment_board_id,
+		team_id,
+		user_id,
+		title,
+		content)
+		VALUES
+		(${recruitmentBoardId},
+		${teamId},
+		${userId},
+		#{title},
+		#{content});
+	</insert>
+
+	<!-- 팀에서 가입 내역 조회 -->
+	<select id="selectByTeamId" parameterType="int">
+		SELECT *
+		FROM TEAM_APPLICATION
+		WHERE team_id = ${teamId};
+	</select>
+	
+	<!-- 신청 아이디로 조회 -->
+	<select id="selectById" parameterType="int">
+		SELECT *
+		FROM TEAM_APPLICATION
+		WHERE id = ${id};
+	</select>
+
+	<!-- 신청 삭제 -->
+	<delete id="deleteApplication" parameterType="int">
+		DELETE FROM TEAM_APPLICATION
+		WHERE id = ${id};
+	</delete>
+
+	<!--<select id="selectMatchRequest" parameterType="MatchRequest">
+		SELECT *
+		FROM match_request
+		WHERE team_id_from = ${teamIdFrom} AND team_id_to = ${teamIdTo}
+		LIMIT 1;
+	</select>-->
+</mapper>

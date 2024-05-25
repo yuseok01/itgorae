@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.ssaccer.model.dao.MatchBoardDao">
+	<!-- 가입 신청 -->
+	<insert id="insertBoard" parameterType="MatchBoard">
+		INSERT INTO MATCH_BOARD
+		(my_team_id,
+		opposing_team_id)
+		VALUES
+		(${myTeamId},
+		${opposingTeamId});
+	</insert>
+
+	<!-- 팀에서 가입 내역 조회 -->
+	<select id="selectByTeamId" parameterType="int">
+		SELECT *
+		FROM MATCH_BOARD
+		WHERE my_team_id = ${id};
+	</select>
+
+	<!-- 신청 아이디로 조회 -->
+	<select id="selectOne" parameterType="int">
+		SELECT *
+		FROM MATCH_BOARD
+		WHERE board_id = ${id};
+	</select>
+
+	<!-- 신청 삭제 -->
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM MATCH_BOARD
+		WHERE board_id = ${id};
+	</delete>
+
+	<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterType="MatchBoard">
+		UPDATE MATCH_BOARD SET
+		title = #{title},
+		content = #{content},
+		video_url = #{videoUrl},
+		squad_url =#{squadUrl},
+		goals = ${goals},
+		conceded=${conceded},
+		result = <choose>
+			<when test="goals > conceded">
+				'win'
+			</when>
+			<when test="conceded > goals">
+				'loss'
+			</when>
+			<otherwise>
+				'draw'
+			</otherwise>
+		</choose>
+		WHERE board_id = ${boardId};
+	</update>
+
+</mapper>
