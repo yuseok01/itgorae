@@ -79,14 +79,14 @@ public class Baekjoon_dijkstra3_해킹 {
 		PriorityQueue<Node> pq = new PriorityQueue<>();
 		
 		time[start] = 0;
-		pq.offer(new Node(start, 0));
+		pq.offer(new Node(start, 0)); 
 		
 		while(!pq.isEmpty()) {
-			int now = pq.poll().to;
+			int now = pq.poll().to; //현재 갈 곳 
 			//행선지
-			if(!visted[now]) {
-				visted[now] = true;
-				for(Node next : list[now]) {
+			if(!visted[now]) { //갈곳이 방문하지않았다면 
+				visted[now] = true; 
+				for(Node next : list[now]) { //다음 갈곳을 확인
 					if(time[next.to] > time[now] + next.t) {
 						time[next.to] = time[now] + next.t;
 						pq.add(new Node(next.to, time[next.to]));
