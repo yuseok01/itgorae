@@ -61,13 +61,14 @@ public class Baekjoon_dijkstra4_1261_알고스팟 {
 		dist[0][0] = 0; //시작 가중치는 0
 		pq.offer(new point(0, 0, 0)); //0,0 에서 가중치 0으로 시작 
 		while (!pq.isEmpty()) {
+			
 			point now = pq.poll(); // 현재 x ,y 좌표
-
+			
 			for (int i = 0; i < 4; i++) {
 				int nextX = now.x + dx[i];
 				int nextY = now.y + dy[i];
 				int nextW = now.w;
-				if (0 <= nextX && nextX < m && 0 <= nextY && nextY <  ) {
+				if (0 <= nextX && nextX < m && 0 <= nextY && nextY < n ) {
 					if(map[nextY][nextX] == 1) {//벽이라면
 						nextW++; //가중치 올려주기 
 					}

@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
  
-public class Baekjoon_dijkstra4_1261_알고스팟DFS {
+public class Baekjoon_dijkstra4_1261_알고스팟_dfs {
     private static int[] di = {-1, 1, 0, 0};
     private static int[] dj = {0, 0, -1, 1};
     private static int min = Integer.MAX_VALUE;
@@ -37,14 +37,15 @@ public class Baekjoon_dijkstra4_1261_알고스팟DFS {
     private static void dfs(boolean[][] maze, boolean[][] visited, int i, int j, int cnt) {
         visited[i][j] = true;
         
-        if(cnt >= min) { //최소값 보다 크면 
+        if(cnt >= min) {
             return;
         }
         
-        if(i == n - 1 && j == m - 1) { //끝에 도착하면
+        if(i == n - 1 && j == m - 1) {
             if(cnt < min) {
-                min = cnt; //최소값초기화 
+                min = cnt;
             }
+            
             return;
         }
         
