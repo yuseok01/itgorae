@@ -19,6 +19,8 @@ public class BaekJoon_1_2293_동전dfs {
 			st = new StringTokenizer(br.readLine());
 			coins[i] = Integer.parseInt(st.nextToken());	
 		}
+		
+		
 		int [] dp = new int[k+1];
 		dp[0] =1;
 		for(int coin : coins) { 
@@ -27,6 +29,5 @@ public class BaekJoon_1_2293_동전dfs {
 			}
 		}
 		System.out.println(dp[k]);
-				
 	}
 }

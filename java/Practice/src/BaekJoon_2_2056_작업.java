@@ -45,10 +45,10 @@ public class BaekJoon_2_2056_작업 {
     private static int calculateCompletionTime(int task, int[] time, int[] dp, List<List<Integer>> adj) {
         if (dp[task] != 0) {
             return dp[task];
-        }
+        }//기저조건 dp[0]은 계산되어있음 
         
         int maxTime = 0;
-        for (int preTask : adj.get(task)) {
+        for (int preTask : adj.get(task)) { //[작업에 선행으로 수행되어야하는 값을 계산 둘중에 가장 많은 시간이 걸리는 것만 필요
             maxTime = Math.max(maxTime, calculateCompletionTime(preTask, time, dp, adj));
         }
         
