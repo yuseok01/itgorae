@@ -8,8 +8,8 @@ import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
 public class OrderApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        MemberService memberService = new MemberServiceImpl(null);
+        OrderService orderService = new OrderServiceImpl(null, null);
         long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
         memberService.join(member);
