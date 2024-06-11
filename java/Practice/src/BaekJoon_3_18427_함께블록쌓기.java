@@ -37,17 +37,18 @@ public class BaekJoon_3_18427_함께블록쌓기 {
 						continue;
 					
 					dp[i][j] += dp[i-1][j-list[i].get(k)];
-					//i번째 학생이 하나의 블록을 선택하는 경우
+				//i번째 학생이 사용한 블럭
 				}
-				//하나의 블록도 사용하지않는경우 
+				//+
+				//현재 사람 -1 의 경우의수
 				dp[i][j] += dp[i-1][j];
 				dp[i][j] %= 10007;
 			}
 		}
 
 	
-//		 System.out.println(Arrays.deepToString(dp));
-		
+		 System.out.println(Arrays.deepToString(dp));
+		System.out.println(10007 % 9);
 	
 		System.out.println(dp[n][h]);
 		
