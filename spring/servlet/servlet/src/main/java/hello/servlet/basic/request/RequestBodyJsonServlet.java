@@ -12,7 +12,10 @@ import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+/*
+제이슨형태로 변환하는거 중요!!
 
+ */
 @WebServlet (name = "RequestBodyJsonServlet" , urlPatterns = "/request-body-json")
 public class RequestBodyJsonServlet extends HttpServlet {
 

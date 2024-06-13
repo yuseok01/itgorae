@@ -47,10 +47,23 @@ public class BaekJoon_3_18427_함께블록쌓기 {
 		}
 
 	
-		 System.out.println(Arrays.deepToString(dp));
-		System.out.println(10007 % 9);
+//		 System.out.println(Arrays.deepToString(dp));
+
 	
 		System.out.println(dp[n][h]);
 		
 	}
+	/*
+	 * dp[1][2]=dp[0][0]=1
+	 * dp[1][3]=dp[0][0]=1
+	 * dp[1][5]=dp[0][0]=1
+	 * 
+	 * dp[2][3]=dp[1][3]+dp[1][0]=1+1=2
+	 * dp[2][4]=dp[1][4]+dp[1][1]=0+0=0
+	 * dp[2][5]=dp[1][5]+dp[1][2]=1+1=2
+	 * dp[2][5]=dp[2][5]+dp[1][0]=2+1=3
+	 * 
+	 * 이전 사람이 블록을 쓰는 모든 경우 + 이전 사람이 안쓰고 내가 모든 블록을 쓰는 경우  
+	 * 
+	 */
 }
