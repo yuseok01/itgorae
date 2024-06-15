@@ -48,4 +48,3 @@ public class BeakJoon_로또_6603 {
 	}//f()
 	
 }// class Main
-출처: https://yeons4every.tistory.com/89 [나누는 개발 공부:티스토리]

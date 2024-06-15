@@ -9,7 +9,6 @@ public class BaekJoon_3_5525_ioi {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
-		0
 		int n = Integer.parseInt(br.readLine()); //연속으로 나와야할 갯수
 		int m = Integer.parseInt(br.readLine()); //char의 길이
 		char arr[] = br.readLine().toCharArray(); //한줄을 char배열로 입력
