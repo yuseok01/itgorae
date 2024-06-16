@@ -40,7 +40,6 @@ public class BaekJoon_5_1654_랜선짜르기 {
 				min = mid+1;
 			}
 
-			
 		}
 		System.out.println(min-1);
 		
