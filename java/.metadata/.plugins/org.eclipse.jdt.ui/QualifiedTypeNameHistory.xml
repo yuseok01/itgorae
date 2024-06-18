@@ -8,7 +8,6 @@
     <fullyQualifiedTypeName name="java.lang.Boolean"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="BaekJoon_Dijkstra.Baekjoon_dijkstra3_해킹.Node"/>
-    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
     <fullyQualifiedTypeName name="java.lang.Comparable"/>
     <fullyQualifiedTypeName name="java.util.PriorityQueue"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -27,4 +26,5 @@
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
     <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 </qualifiedTypeNameHistroy>
