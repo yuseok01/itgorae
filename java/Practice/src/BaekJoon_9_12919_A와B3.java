@@ -43,6 +43,5 @@ public class BaekJoon_9_12919_A와B3 {
 			goal = sb.reverse().toString();
 			isPosible(init, goal, aLogic, bLogic);
 		}
-		
 	}
 }
