@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="BeakJoon_재귀/|BeakJoon_정렬/|BaekJoon_그리디/|BeakJoon/|BeakJoon_큐덱우선순위큐/" kind="src" path=""/>
+	<classpathentry kind="src" path="BaekJoon_그리디"/>
+	<classpathentry kind="src" path="BeakJoon"/>
+	<classpathentry kind="src" path="BeakJoon_재귀"/>
+	<classpathentry kind="src" path="BeakJoon_정렬"/>
+	<classpathentry kind="src" path="BeakJoon_큐덱우선순위큐"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
