@@ -79,6 +79,5 @@ public class BaekJoon1_19_5972_택배배송 {
 				}
 			}
 		}
-		
 	}
 }
