@@ -1,100 +1,114 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BaekJoon1_21_17142_연구소 {
-	private static int n;
-	private static int m;
-	private static int[] dx = { 1, -1, 0, 0 };
-	private static int[] dy = { 0, 0, -1, 1 };
-	private static int minSec;
-	private static List<virusLocation> list;
-	private static int empty;
+    private static int n;
+    private static int m;
+    private static int[] dx = { 1, -1, 0, 0 };
+    private static int[] dy = { 0, 0, -1, 1 };
+    private static int minSec;
+    private static List<virusLocation> list;
+    private static int empty;
 
-	static class virusLocation {
-		int x;
-		int y;
+    static class virusLocation {
+        int x;
+        int y;
 
-		public virusLocation(int x, int y) {
+        public virusLocation(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
 
-			this.x = x;
-			this.y = y;
-		}
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-	}
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
 
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+        int[][] arr = new int[n][n];
+        list = new LinkedList<>(); 
+        empty = 0;
+        
+        for (int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = Integer.parseInt(st.nextToken());
+                if (arr[i][j] == 2) {
+                    list.add(new virusLocation(i, j));
+                } else if (arr[i][j] == 0) { 
+                    empty++;
+                }
+            }
+        }
+        
+        minSec = Integer.MAX_VALUE;
+        boolean[] visited = new boolean[list.size()];
+        selectActive(0, 0, visited, arr);
+        System.out.println(minSec == Integer.MAX_VALUE ? -1 : minSec);
+    }
 
-		n = Integer.parseInt(st.nextToken());
-		m = Integer.parseInt(st.nextToken());
+    private static void selectActive(int start, int activeCnt, boolean[] visited, int[][] arr) {
+        if (activeCnt == m) {
+            spreadVirus(visited, arr);
+            return;
+        }
 
-		int[][] arr = new int[n][n];
-		list = new LinkedList<>(); //리스트 사용이유 : 바이러스 x y 값 저장 / [1,2,3,4] 1번이 고려됬다면 2,3,4 인덱스로 접근 필요
-		empty = 0; //empty 빈공간 저장 -> 마지막에 순회하지 않고 결과를 알기 위해 
-		for (int i = 0; i < n; i++) {
-			st = new StringTokenizer(br.readLine());
-			for (int j = 0; j < n; j++) {
-				arr[i][j] = Integer.parseInt(st.nextToken());
-				if (arr[i][j] == 2) {
-					list.add(new virusLocation(i, j));
-				} else if (arr[i][j] == 0) {
-					empty++;
-				}
-			}
-		}
-		minSec = Integer.MAX_VALUE;
-		boolean[] visited = new boolean[list.size()];
-		selectActive(0, list, visited, arr);
-		System.out.println(minSec);
-	}
+        for (int i = start; i < list.size(); i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                selectActive(i + 1, activeCnt + 1, visited, arr);
+                visited[i] = false;
+            }
+        }
+    }
 
-	private static void selectActive(int activeCnt, List<virusLocation> list, boolean[] visited, int[][] arr) {
-		if (activeCnt == m) { // m개 활성화했어 퍼트려
+    private static void spreadVirus(boolean[] visited, int[][] arr) {
+        int cnt = 0; // 바이러스 퍼진 빈 공간 수
+        int sec = 0;
+        Queue<virusLocation> q = new LinkedList<>();
 
-			int cnt = 0; // 바이러스 퍼진 횟수
-			int sec = 0;
-			Queue<virusLocation> q = new LinkedList<>();
+        for (int i = 0; i < list.size(); i++) {
+            if (visited[i]) {
+                q.add(list.get(i));
+            }
+        }
+        q.add(null); // 사이클 구분을 위한 null 삽입
+        boolean[][] arrVisited = new boolean[n][n];
 
-			for (int i = 0; i < list.size(); i++) { //바이러스 위치 삽입 
-				if (visited[i]) { // 활성화된 바이러스 큐에 넣기 
-					q.add(list.get(i)); 
-				}
-			}
-			boolean [][] arrVisited = new boolean[n][n]; //원본 배열 훼손 안하고싶어 
-			while (!q.isEmpty()) { //큐빌때까지 
-				virusLocation now = q.poll();
-				arrVisited[now.x][now.y] = true;
-				for (int k = 0; k < 4; k++) {
-					int idx = now.x + dx[k];
-					int idy = now.y + dy[k];
-					if (0 <= idx && idx < n && 0 <= idy && idy < n && arr[idx][idy] == 0 && !arrVisited[idx][idy]) {
-						arrVisited[idx][idy] =  true;
-						cnt++; // 바이러스 퍼트렸어
-						q.add(new virusLocation(idx, idy));
-					}
-				}
-				sec++;
-			}
-			minSec = Math.min(minSec, sec);
-			return;
-		}
+        while (!q.isEmpty()) {
+            virusLocation now = q.poll();
 
-		for (int i = 0; i < list.size(); i++) {
-			if (!visited[i]) {
-				visited[i] = true;
-				selectActive(activeCnt + 1, list, visited, arr);
-				visited[i] = false;
-			}
-		}
+            if (now == null) {
+                if (!q.isEmpty()) {
+                    q.add(null);
+                }
+                sec++;
+            } else {
+                for (int k = 0; k < 4; k++) {
+                    int idx = now.x + dx[k];
+                    int idy = now.y + dy[k];
+                    if (0 <= idx && idx < n && 0 <= idy && idy < n && !arrVisited[idx][idy]) {
+                        if (arr[idx][idy] == 0) {
+                            arrVisited[idx][idy] = true;
+                            cnt++;
+                            q.add(new virusLocation(idx, idy));
+                        } else if (arr[idx][idy] == 2) {
+                            q.add(new virusLocation(idx, idy));
+                        }
+                    }
+                }
+            }
+        }
 
-	}
+        if (cnt == empty) {
+            minSec = Math.min(minSec, sec);
+        }
+    }
 }
