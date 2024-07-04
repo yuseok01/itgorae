@@ -38,8 +38,8 @@ public class BaekJoon1_21_17142_연구소 {
 		m = Integer.parseInt(st.nextToken());
 
 		int[][] arr = new int[n][n];
-		list = new LinkedList<>();
-		empty = 0;
+		list = new LinkedList<>(); //리스트 사용이유 : 바이러스 x y 값 저장 / [1,2,3,4] 1번이 고려됬다면 2,3,4 인덱스로 접근 필요
+		empty = 0; //empty 빈공간 저장 -> 마지막에 순회하지 않고 결과를 알기 위해 
 		for (int i = 0; i < n; i++) {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < n; j++) {
@@ -54,7 +54,7 @@ public class BaekJoon1_21_17142_연구소 {
 		minSec = Integer.MAX_VALUE;
 		boolean[] visited = new boolean[list.size()];
 		selectActive(0, list, visited, arr);
-
+		System.out.println(minSec);
 	}
 
 	private static void selectActive(int activeCnt, List<virusLocation> list, boolean[] visited, int[][] arr) {
@@ -64,18 +64,20 @@ public class BaekJoon1_21_17142_연구소 {
 			int sec = 0;
 			Queue<virusLocation> q = new LinkedList<>();
 
-			for (int i = 0; i < list.size(); i++) {
-				if (visited[i]) { // i 바이러스 활성화
-					q.add(list.get(i));
+			for (int i = 0; i < list.size(); i++) { //바이러스 위치 삽입 
+				if (visited[i]) { // 활성화된 바이러스 큐에 넣기 
+					q.add(list.get(i)); 
 				}
 			}
-			while (cnt == empty) { // 바이러스가 퍼진 횟수 == 빈 곳과 같아 질때 까지
+			boolean [][] arrVisited = new boolean[n][n]; //원본 배열 훼손 안하고싶어 
+			while (!q.isEmpty()) { //큐빌때까지 
 				virusLocation now = q.poll();
+				arrVisited[now.x][now.y] = true;
 				for (int k = 0; k < 4; k++) {
 					int idx = now.x + dx[k];
 					int idy = now.y + dy[k];
-					if (0 <= idx && idx < n && 0 <= idy && idy < n && arr[idx][idy] == 0) {
-						arr[idx][idy] = 2;
+					if (0 <= idx && idx < n && 0 <= idy && idy < n && arr[idx][idy] == 0 && !arrVisited[idx][idy]) {
+						arrVisited[idx][idy] =  true;
 						cnt++; // 바이러스 퍼트렸어
 						q.add(new virusLocation(idx, idy));
 					}

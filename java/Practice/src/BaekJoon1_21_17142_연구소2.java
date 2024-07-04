@@ -9,16 +9,17 @@ import java.util.StringTokenizer;
 public class BaekJoon1_21_17142_연구소2 {
     private static int n;
     private static int m;
-    private static int[] dx = {1, -1, 0, 0};
-    private static int[] dy = {0, 0, -1, 1};
+    private static int[] dx = { 1, -1, 0, 0 };
+    private static int[] dy = { 0, 0, -1, 1 };
     private static int minSec;
-    private static List<VirusLocation> list;
+    private static List<virusLocation> list;
     private static int empty;
 
-    static class VirusLocation {
-        int x, y;
+    static class virusLocation {
+        int x;
+        int y;
 
-        public VirusLocation(int x, int y) {
+        public virusLocation(int x, int y) {
             this.x = x;
             this.y = y;
         }
@@ -32,15 +33,15 @@ public class BaekJoon1_21_17142_연구소2 {
         m = Integer.parseInt(st.nextToken());
 
         int[][] arr = new int[n][n];
-        list = new LinkedList<>();
-        empty = 0;
+        list = new LinkedList<>(); // 바이러스 위치 저장 리스트
+        empty = 0; // 빈 공간 수 저장
 
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < n; j++) {
                 arr[i][j] = Integer.parseInt(st.nextToken());
                 if (arr[i][j] == 2) {
-                    list.add(new VirusLocation(i, j));
+                    list.add(new virusLocation(i, j));
                 } else if (arr[i][j] == 0) {
                     empty++;
                 }
@@ -48,9 +49,14 @@ public class BaekJoon1_21_17142_연구소2 {
         }
 
         minSec = Integer.MAX_VALUE;
+
+        if (empty == 0) {
+            System.out.println(0);
+            return;
+        }
+
         boolean[] visited = new boolean[list.size()];
         selectActive(0, 0, visited, arr);
-
         System.out.println(minSec == Integer.MAX_VALUE ? -1 : minSec);
     }
 
@@ -60,63 +66,55 @@ public class BaekJoon1_21_17142_연구소2 {
             return;
         }
 
-        for (int i = 0; i < list.size(); i++) {
+        for (int i = start; i < list.size(); i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                selectActive(start, activeCnt + 1, visited, arr);
+                selectActive(i + 1, activeCnt + 1, visited, arr);
                 visited[i] = false;
             }
         }
     }
 
     private static void spreadVirus(boolean[] visited, int[][] arr) {
-        int[][] tempArr = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            System.arraycopy(arr[i], 0, tempArr[i], 0, n);
-        }
-
-        Queue<VirusLocation> q = new LinkedList<>();
-        boolean[][] infected = new boolean[n][n];
-        int spreadCount = 0;
+        Queue<virusLocation> q = new LinkedList<>();
+        boolean[][] arrVisited = new boolean[n][n];
+        int[][] spreadTime = new int[n][n];
 
         for (int i = 0; i < list.size(); i++) {
             if (visited[i]) {
-                VirusLocation now = list.get(i);
-                q.add(now);
-                infected[now.x][now.y] = true;
+                virusLocation vl = list.get(i);
+                q.add(vl);
+                arrVisited[vl.x][vl.y] = true;
             }
         }
 
-        int time = 0;
+        int cnt = 0;
+        int sec = 0;
 
-        while (!q.isEmpty() && spreadCount < empty) {
-            int size = q.size();
-            boolean spread = false; // 바이러스가 퍼졌는지 체크
-            for (int i = 0; i < size; i++) {
-                VirusLocation now = q.poll();
-                for (int k = 0; k < 4; k++) {
-                    int nx = now.x + dx[k];
-                    int ny = now.y + dy[k];
+        while (!q.isEmpty()) {
+            virusLocation now = q.poll();
 
-                    if (0 <= nx && nx < n && 0 <= ny && ny < n && !infected[nx][ny]) {
-                        if (tempArr[nx][ny] == 0) {
-                            spreadCount++;
-                            spread = true;
-                        }
-                        if (tempArr[nx][ny] != 1) {
-                            infected[nx][ny] = true;
-                            q.add(new VirusLocation(nx, ny));
-                        }
+            for (int k = 0; k < 4; k++) {
+                int idx = now.x + dx[k];
+                int idy = now.y + dy[k];
+
+                if (0 <= idx && idx < n && 0 <= idy && idy < n && !arrVisited[idx][idy]) {
+                    if (arr[idx][idy] == 0) {
+                        cnt++;
+                        spreadTime[idx][idy] = spreadTime[now.x][now.y] + 1;
+                        sec = spreadTime[idx][idy];
+                        arrVisited[idx][idy] = true;
+                        q.add(new virusLocation(idx, idy));
+                    } else if (arr[idx][idy] == 2) {
+                        arrVisited[idx][idy] = true;
+                        q.add(new virusLocation(idx, idy));
                     }
                 }
             }
-            if (spread) {
-                time++;
-            }
         }
 
-        if (spreadCount == empty) {
-            minSec = Math.min(minSec, time);
+        if (cnt == empty) {
+            minSec = Math.min(minSec, sec);
         }
     }
 }
