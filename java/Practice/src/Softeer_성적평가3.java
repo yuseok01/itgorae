@@ -9,9 +9,9 @@ public class Softeer_성적평가3 {
         StringBuilder sb = new StringBuilder();
 
         int n = Integer.parseInt(br.readLine());
-        int[][] arr = new int[4][n];
+        int[][] arr = new int[4][n]; //입력배열 
         int[][] scores = new int[4][3001];
-        int[][] answer = new int[4][n];
+        int[][] answer = new int[4][n]; //결과 배열
 
         for(int i = 0; i < 3; i++){
             st = new StringTokenizer(br.readLine());

@@ -1,30 +1,39 @@
 package jpabook.jpashop.service;
 
-import jakarta.transaction.Transactional;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true) //트랜젝션 있어야함 리드온리라서
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class ItemService {
 
     private final ItemRepository itemRepository;
 
-    @Transactional //저장하니깐 어노테이션 써주기
-    public void save(Item item) {
+    @Transactional
+    public void saveItem(Item item) {
         itemRepository.save(item);
+    }
+
+    @Transactional
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findOne(itemId);
+        item.setName(name);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity);
     }
 
     public List<Item> findItems() {
         return itemRepository.findAll();
     }
 
-    public Item findItemOne(Long itemid) {
-        return itemRepository.findOne(itemid);
+    public Item findOne(Long itemId) {
+        return itemRepository.findOne(itemId);
     }
+
 }
