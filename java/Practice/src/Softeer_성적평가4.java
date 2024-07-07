@@ -26,11 +26,11 @@ public class Softeer_성적평가4 {
 
         for (int j = 0; j < n; j++) {
             scores[3][j] = acc[j]; // 누적 합계를 scores의 네 번째 과목으로 저장
-            arr[3][acc[j]]++; // 누적 합계의 학생 수 증가
-        }
+            arr[3][acc[j]]++; // 누적 합계의 학생 수 증가 
+         }
 
         Map<Integer, Integer>[] map = new HashMap[4]; // 점수별 랭크를 저장할 맵 배열
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {  
             map[i] = new HashMap<>();
         }
 

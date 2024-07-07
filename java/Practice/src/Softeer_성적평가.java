@@ -12,8 +12,8 @@ public class Softeer_성적평가{
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
         
-        List<Integer> grade = new ArrayList<>(); 
 
+        List<Integer> grade = new ArrayList<>(); 
         N = Integer.parseInt(br.readLine());
         sums = new int[N];
         
