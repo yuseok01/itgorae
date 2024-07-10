@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Softeer_성적평가2 {
+public class Softeer_0_성적평가2 {
     static class Grade implements Comparable<Grade> {
         int index;
         int score;

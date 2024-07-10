@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Softeer_성적평가3 {
+public class Softeer_0_성적평가3 {
 
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
