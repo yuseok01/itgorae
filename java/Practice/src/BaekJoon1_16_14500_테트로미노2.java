@@ -62,6 +62,54 @@ public class BaekJoon1_16_14500_테트로미노2 {
         if (x >= 0 && x < n - 1 && y >= 1 && y < m - 1) {
             int sum = arr[x][y] + arr[x][y - 1] + arr[x][y + 1] + arr[x + 1][y];
             maxSum = Math.max(maxSum, sum);
+        }import java.io.BufferedReader;
+        import java.io.IOException;
+        import java.io.InputStreamReader;
+        import java.util.StringTokenizer;
+
+        public class Main {
+        	static int[][] dr = {{0,0,0,0},{0,0,1,1},{0,1,2,2},{0,1,1,2},{0,0,0,1},
+        			{0,1,2,3},{0,1,2,2},{0,0,1,2},{0,0,1,2},{0,1,1,2},
+        			{0,0,1,1},{0,0,1,1},{0,1,1,2},{0,1,1,1},{0,1,1,2},
+        			{0,0,0,1},{0,1,1,1},{0,0,0,1},{0,1,1,1}};
+        	static int[][] dc = {{0,1,2,3},{0,1,0,1},{0,0,0,1},{0,0,1,1},{0,1,2,1},
+        			{0,0,0,0},{1,1,0,1},{0,1,0,0},{0,1,1,1},{1,0,1,0},
+        			{1,2,0,1},{0,1,1,2},{1,0,1,1},{1,0,1,2},{0,0,1,0},
+        			{0,1,2,0},{0,0,1,2},{0,1,2,2},{2,0,1,2}};
+        	public static void main(String[] args) throws IOException {
+        		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        		StringTokenizer st = new StringTokenizer(in.readLine());
+        		int N = Integer.parseInt(st.nextToken()), M = Integer.parseInt(st.nextToken());
+        		
+        		int[][] map = new int[N][M];
+        		for(int i = 0 ;i<N; i++) {
+        			st = new StringTokenizer(in.readLine());
+        			for(int j = 0; j<M; j++) {
+        				map[i][j] = Integer.parseInt(st.nextToken());
+        			}
+        		}
+        		
+        		int maxSum = -1;
+        		for(int i = 0; i<N; i++) {
+        			for(int j = 0; j<M; j++) {
+        				outer : for(int tetNum = 0; tetNum<dr.length; tetNum++) {
+        					int[] curXs = dr[tetNum];
+        					int[] curYs = dc[tetNum];
+        					int sum = 0;
+        					for(int k = 0; k<4; k++) {
+        						int curX = i+curXs[k];
+        						int curY = j+curYs[k];
+        						if(curX < 0 || curY <0 || curX >= N || curY >=M)
+        							continue outer;
+        						
+        						sum+= map[curX][curY];
+        					}
+        					maxSum = Math.max(maxSum, sum);
+        				}	
+        			}
+        		}
+        		System.out.println(maxSum);
+        	}
         }
         if (x >= 1 && x < n && y >= 1 && y < m - 1) {
             int sum = arr[x][y] + arr[x][y - 1] + arr[x][y + 1] + arr[x - 1][y];
