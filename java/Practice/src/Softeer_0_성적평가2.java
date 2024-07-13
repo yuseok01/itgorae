@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Softeer_성적평가2 {
+public class Softeer_0_성적평가2 {
     static class Grade implements Comparable<Grade> {
         int index;
         int score;
@@ -39,8 +39,8 @@ public class Softeer_성적평가2 {
             // 리스트를 점수 기준으로 내림차순 정렬
             Collections.sort(gradeList);
 
-            int rank = 1;
-            result[i][gradeList.get(0).index] = rank;
+            
+            result[i][gradeList.get(0).index] = 1;
 
             for (int k = 1; k < gradeList.size(); k++) {
                 if (gradeList.get(k).score == gradeList.get(k - 1).score) {
@@ -64,8 +64,8 @@ public class Softeer_성적평가2 {
         // 총 점수를 기준으로 내림차순 정렬
         Collections.sort(totalList);
 
-        int rank = 1;
-        result[3][totalList.get(0).index] = rank;
+  
+        result[3][totalList.get(0).index] = 1;
 
         for (int k = 1; k < totalList.size(); k++) {
             if (totalList.get(k).score == totalList.get(k - 1).score) {

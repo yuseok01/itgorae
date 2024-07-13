@@ -7,10 +7,6 @@ private static int userNum;
 private static int [] promotion = {10,20,30,40};
 
 
-
-
-
-
 private static int[] solution(int[][] users, int[] emoticons) {
 	int subscriber = 0;
 	int sale = 0;
