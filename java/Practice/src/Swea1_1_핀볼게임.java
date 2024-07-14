@@ -19,8 +19,8 @@ public class Swea1_1_핀볼게임 {
 
     private static int[][] arr;
     private static int n;
-    private static final int[] idx = {-1, 1, 0, 0}; // 상, 하, 좌, 우
-    private static final int[] idy = {0, 0, -1, 1}; // 상, 하, 좌, 우
+    private static final int[] dx = {-1, 1, 0, 0}; // 상, 하, 좌, 우
+    private static final int[] dy = {0, 0, -1, 1}; // 상, 하, 좌, 우
     private static final int UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3;
 
     public static void main(String[] args) throws NumberFormatException, IOException {
@@ -65,8 +65,8 @@ public class Swea1_1_핀볼게임 {
         int dir = startDir;
 
         while (true) {
-            x += idx[dir];
-            y += idy[dir];
+            x += dx[dir];
+            y += dy[dir];
 
             if (x < 0 || x >= n || y < 0 || y >= n) { // 벽에 부딪히는 경우
                 dir = changeDirection(dir, 5);
@@ -118,6 +118,7 @@ public class Swea1_1_핀볼게임 {
                 else if (dir == DOWN) return RIGHT;
                 else return LEFT;
             case 5:
+            	
                 return (dir == UP) ? DOWN : (dir == DOWN) ? UP : (dir == LEFT) ? RIGHT : LEFT;
             default:
                 return dir;
