@@ -4,7 +4,6 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class BaekJoon1_16_14500_테트로미노2 {
-<<<<<<< HEAD
 	/*
 	 * -- * 2
 	 * ㅁ *1
@@ -58,7 +57,6 @@ public class BaekJoon1_16_14500_테트로미노2 {
 		System.out.println(maxSum);
 	}
 }
-=======
     private static int n;
     private static int m;
     private static int[][] arr;

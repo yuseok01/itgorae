@@ -56,7 +56,6 @@ public class BaekJoon1_16_14500_테트로미노 {
 					visited[idx][idy] = true;
 					solution(x,y,sum+arr[idx][idy], depth+1);
 					visited[idx][idy] = false;
-					
 				}
 				visited[idx][idy] = true;
 				solution(idx, idy, sum+arr[idx][idy], depth + 1);
