@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
-class Solution {
+public class Programmers_6_주차요금계산 {
 	public static void main(String[] args) {
 		int [] fees = {180,5000,10,600}; //기본시간 , 기본요금, 단위시간, 단위요금
 		String [] record = {"05:34 5961 IN", "06:00 0000 IN",
@@ -22,9 +22,11 @@ class Solution {
 				"23:00 5961 OUT"};
 		int [] result = solution(fees,record);
 		for(int i = 0 ; i < 3 ; i++) {
-			System.out.println(result);
+			System.out.println(result[i]);
 			}
 	}
+	
+	
 	static int inCnt = 0;
     public static int[] solution(int[] fees, String[] records) {
         int basicTime = fees[0];
@@ -56,17 +58,24 @@ class Solution {
         int [] answer = new int[inCnt];
         for(int i = 0 ; i < inCnt ; i++) {
         	int nowCarNum = q.poll();
+        	int tmp = 0; 
         	for(int j = 0 ; j < carList[nowCarNum].size() ; j++) {
         		//기본요금 차감
-        		Integer carInTime = carList[nowCarNum].get(i);
-        		carInTime = carInTime + basicTime;
+        		if(j ==0) {
+        			carManager car = carList[nowCarNum].get(j);
+        			int carIntime = car.time;
+        			tmp = carIntime;
+        			carIntime = basicTime;
+        			answer[i] += basicFee;
+        		}else {
+        			carManager car = carList[nowCarNum].get(j);
+        			int carOuttime = car.time;
+        			carOuttime = carOuttime - tmp;
+        			answer[i] += (carOuttime /Time) * fee;
+        		}
         	}
         	
-        }
-        
-    	
-    	
-        
+        }   
         return answer;
     }
     static class carManager{
