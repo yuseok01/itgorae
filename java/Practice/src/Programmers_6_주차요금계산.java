@@ -25,8 +25,6 @@ public class Programmers_6_주차요금계산 {
 			System.out.println(result[i]);
 			}
 	}
-	
-	
 	static int inCnt = 0;
     public static int[] solution(int[] fees, String[] records) {
         int basicTime = fees[0];
