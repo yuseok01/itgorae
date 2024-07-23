@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>title HTML</title>
+</head>
+<body>
+<!--<div><i th:text="${session.user.email}"></i></div>
+<div><i th:text="${session.user.oauthType}"></i></div>  -->
+
+<h2>로그인 성공</h2>
+
+<br>
+<!-- Spring Security에서 제공하는 로그아웃 -->
+<a href="/logout">log out</a> 
+
+</body>
+
+
+
+
+<!-- <script th:inline="javascript">   ajax를 찾지 못해 오류로 로그아웃을 못함
+	$("#logOutBtn").on('click', function(){
+		$ajax({
+			type :"POST",
+			url : "/logout",
+			success : function(){
+				alert("로그아웃 되었습니다.")
+				location.replace("/login")
+			}
+		})
+	})
+
+</script> -->
+
+</html>
