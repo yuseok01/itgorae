@@ -63,7 +63,7 @@ public class BaekJoon1_24_15683_감시 {
         System.out.println(min);
     }
 
-    private static void dfs(int depth, cam[] cams) {
+    private static void dfs(int depth, cam[] cams) { //depth는 카메라 갯수 
         if (depth == list.size()) {
             count(cams, new boolean[N][M]);
             return;
@@ -78,6 +78,7 @@ public class BaekJoon1_24_15683_감시 {
                     cams[depth] = c;
                     dfs(depth + 1, cams);
                     break;
+                    
                 case 2:
                     if (i >= 2) return; // 기본적으로 2방향 진행
                     c.addDir(i); // 0
