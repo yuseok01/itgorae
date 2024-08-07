@@ -19,6 +19,7 @@ public class BaekJoon1_25_12904_A와B {
                 t = t.substring(0, t.length() - 1);
             } else if (t.charAt(t.length() - 1) == 'B') {
                 t = new StringBuilder(t.substring(0, t.length() - 1)).reverse().toString();
+                String t = new StringBuffer().reverse();
             }
         }
         return t.equals(s);
