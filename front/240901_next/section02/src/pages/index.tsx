@@ -7,6 +7,7 @@ import BookItem from "@/components/book-item";
 import { InferGetServerSidePropsType, InferGetStaticPropsType } from "next";
 import fetchBooks from "@/lib/fetch-books";
 import fetchRandomBooks from "@/lib/fetch-random-books";
+import { revalidatePath } from "next/cache";
 
 //약속된 함수 SSR 설정 HOME을 실행시키기 전에 먼저 실행됨  
 export const getStaticProps = async() => {
@@ -16,11 +17,11 @@ const [allBooks, recoBooks] = await Promise.all([
   fetchBooks(),
   fetchRandomBooks(), //인수 전달 
 ]);
-return {  
+return {
   props: {
     allBooks,
     recoBooks,
-  },
+  }, 
  };
 };
 
