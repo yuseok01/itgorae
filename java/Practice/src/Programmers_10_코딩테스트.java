@@ -20,7 +20,7 @@ public class Programmers_10_코딩테스트 {
         boolean[][] visited = new boolean[grid.length][grid[0].length];
         Warehouse warehouseLocation = null;
         int houseCnt = 0;
-
+    
         // 창고 위치와 집의 수를 찾기
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
