@@ -1,5 +1,7 @@
+
+import java.util.*;
 /**
-        테스트 1 〉	통과 (0.10ms, 74.7MB)
+테스트 1 〉	통과 (0.10ms, 74.7MB)
 테스트 2 〉	통과 (0.10ms, 73.6MB)
 테스트 3 〉	통과 (0.12ms, 74.9MB)
 테스트 4 〉	통과 (0.11ms, 73.8MB)
@@ -27,28 +29,40 @@
 테스트 26 〉	통과 (3.85ms, 74.5MB)
 테스트 27 〉	통과 (0.46ms, 72.8MB)
 테스트 28 〉	통과 (0.63ms, 78.6MB)
- */
-import java.util.*;
-
+*/
 class Solution {
     List<Integer> answer = new ArrayList<>();
     
     public int solution(String[][] relation) {
         int n = relation.length; // 테이블의 행(row) 개수, 값 갯수 
         int m = relation[0].length; // 테이블의 열(column) 개수, 속성 갯수 
-        
-        // 1 << m 은 2^m을 의미, 즉 m개의 열에 대해 가능한 모든 조합의 수
-        // 예를 들어 m = 3이면 1 << m = 8, 즉 [000 ~ 111]까지 8개의 조합
+ 
+        /**
+         * 1 << m 은 2^m을 의미, 즉 m개의 열에 대해 가능한 모든 조합의 수
+         * 3의 조합  001 -> 100 -> 8
+         * 4의 조합 0001 -> 1000 -> 16
+         * 5의 조합00001 -> 10000-> 32 
+         */
         for (int i = 1; i < (1 << m); i++) {  
             Set<String> set = new HashSet<>(); // 중복을 방지하기 위한 Set
+            
+            /**
+             * [["100","ryan","music","2"],
+             * ["100","apeach","math","2"],
+             * ["300","tube","computer","3"],
+             * ["400","con","computer","4"],
+             * ["500","muzi","music","3"],
+             * ["600","apeach","music","2"]]
+             */
+            // N번째행의
             for (int j = 0; j < n; j++) {
                 StringBuilder temp = new StringBuilder();
-                // 각 행의 i번째 조합에 해당하는 열을 선택
+                //M번째 열에 대한 고려
                 for (int k = 0; k < m; k++) {
                     // i & (1 << k)는 i의 k번째 비트가 1인지 확인
-                    // i가 101이면, 0번째와 2번째 열을 선택하는 것
-                    if ((i & (1 << k)) > 0) {
-                        // k번째 열을 선택했다면, 해당 열의 데이터를 temp에 추가
+                    // i가 0101이면, 0번째와 2번째 열을 선택하는 것
+                    if ((i & (1 << k)) > 0) { 
+                        // i의 조합중에 부분집합인지 확인하는 조건문
                         temp.append(relation[j][k]);
                     }
                 }
@@ -70,6 +84,14 @@ class Solution {
         for (int j : answer) {
             // i & j == j 이면, j는 i의 부분집합임을 의미
             if ((i & j) == j) return false;
+            //011 & 010 = 010
+            //USER_ID 
+            /**
+             * USER_ID || NAME || AGE 
+             *   1         유석    25
+             *   2         동엽    26
+             *   3         이서    30
+             */
         }
         return true;
     }
