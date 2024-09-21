@@ -5898,3 +5898,484 @@ not correct please set the HOME environment variable and restart Eclipse. Otherw
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 >>>>>>> 52fcdca24fe2205f54fff30ac67a0c1f2c628d54
+!SESSION 2024-09-21 19:55:43.606 -----------------------------------------------
+eclipse.buildId=4.22.0.202403071427
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-09-21 19:55:45.466
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-09-21 19:55:45.770
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-09-21 19:56:02.676
+!MESSAGE Logback config file: C:\Users\pc\OneDrive\Desktop\itgorae\java\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2024-09-21 19:56:03.064
+!MESSAGE Unable to load resource file:/C:/Users/pc/OneDrive/Desktop/itgorae/java/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+!STACK 0
+org.eclipse.emf.ecore.resource.impl.ResourceSetImpl$1DiagnosticWrappedException: org.xml.sax.SAXParseExceptionpublicId: file:/C:/Users/pc/OneDrive/Desktop/itgorae/java/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi; systemId: file:/C:/Users/pc/OneDrive/Desktop/itgorae/java/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi; lineNumber: 3; columnNumber: 2; 요소 콘텐츠는 올바른 형식의 문자 데이터 또는 마크업으로 구성되어야 합니다.
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.handleDemandLoadException(ResourceSetImpl.java:319)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:278)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getResource(ResourceSetImpl.java:406)
+	at org.eclipse.e4.ui.internal.workbench.ResourceHandler.getResource(ResourceHandler.java:287)
+	at org.eclipse.e4.ui.internal.workbench.ResourceHandler.loadResource(ResourceHandler.java:263)
+	at org.eclipse.e4.ui.internal.workbench.ResourceHandler.loadMostRecentModel(ResourceHandler.java:166)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application.loadApplicationModel(E4Application.java:368)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application.createE4Workbench(E4Application.java:244)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:568)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+Caused by: org.xml.sax.SAXParseExceptionpublicId: file:/C:/Users/pc/OneDrive/Desktop/itgorae/java/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi; systemId: file:/C:/Users/pc/OneDrive/Desktop/itgorae/java/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi; lineNumber: 3; columnNumber: 2; 요소 콘텐츠는 올바른 형식의 문자 데이터 또는 마크업으로 구성되어야 합니다.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.startOfMarkup(XMLDocumentFragmentScannerImpl.java:2589)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2679)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:326)
+	at org.eclipse.emf.ecore.xmi.impl.XMLLoadImpl.load(XMLLoadImpl.java:175)
+	at org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl.doLoad(XMLResourceImpl.java:260)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1563)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1342)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	... 23 more
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2024-09-21 19:56:03.066
+!MESSAGE The persisted application model has no top-level window. Reinitializing with the default application model.
+!STACK 0
+java.lang.Exception
+	at org.eclipse.e4.ui.internal.workbench.ResourceHandler.loadMostRecentModel(ResourceHandler.java:171)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application.loadApplicationModel(E4Application.java:368)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application.createE4Workbench(E4Application.java:244)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:568)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.ui 2 0 2024-09-21 19:56:03.207
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-09-21 19:56:03.207
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2024-09-21 19:56:03.530
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-09-21 19:56:03.530
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-09-21 19:56:06.946
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\pc'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-09-21 19:56:17.259
+!MESSAGE Classpath changed for project: Practice
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-09-21 19:56:53.470
+!MESSAGE Classpath changed for project: src
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-09-21 19:56:53.716
+!MESSAGE Classpath changed for project: src
+
+!ENTRY org.eclipse.jdt.core 4 4 2024-09-21 19:56:55.713
+!MESSAGE JavaBuilder handling CoreException
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/src/bin/BeakJoon_BFS넓이_BFS깊이/point.class)[275]: java.lang.Exception: A resource exists with a different case: '/src/bin/BeakJoon_BFS넓이_BFS깊이/point.class'.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:352)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:330)
+	at org.eclipse.core.internal.resources.File.create(File.java:130)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFileContents(AbstractImageBuilder.java:930)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFile(AbstractImageBuilder.java:906)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.acceptResult(AbstractImageBuilder.java:217)
+	at org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:614)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:474)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:425)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:411)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:214)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:342)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:79)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:286)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 275 2024-09-21 19:56:55.719
+!MESSAGE A resource exists with a different case: '/src/bin/BeakJoon_BFS넓이_BFS깊이/point.class'.
+!STACK 0
+java.lang.Exception: A resource exists with a different case: '/src/bin/BeakJoon_BFS넓이_BFS깊이/point.class'.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:352)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:330)
+	at org.eclipse.core.internal.resources.File.create(File.java:130)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFileContents(AbstractImageBuilder.java:930)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFile(AbstractImageBuilder.java:906)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.acceptResult(AbstractImageBuilder.java:217)
+	at org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:614)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:474)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:425)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:411)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:214)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:342)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:79)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:286)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-09-21 19:57:08.239
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\sts-4.22.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.10.v20240120-1143\jre\bin\javaw.exe
+-cp
+C:\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\classes;C:\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=C:/Users/pc/OneDrive/Desktop/itgorae/java/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1726916228238
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-09-21 19:57:08.240
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-09-21 19:57:08.246
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 11344
+
+!ENTRY org.eclipse.debug.ui 4 120 2024-09-21 19:57:08.610
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+org.xml.sax.SAXParseException; lineNumber: 18; columnNumber: 2; 요소 콘텐츠는 올바른 형식의 문자 데이터 또는 마크업으로 구성되어야 합니다.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.startOfMarkup(XMLDocumentFragmentScannerImpl.java:2589)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2679)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:247)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationManager.restoreLaunchHistory(LaunchConfigurationManager.java:497)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationManager.loadLaunchHistories(LaunchConfigurationManager.java:1055)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationManager.getLaunchHistory(LaunchConfigurationManager.java:1027)
+	at org.eclipse.debug.ui.actions.AbstractLaunchHistoryAction.internalGetHistory(AbstractLaunchHistoryAction.java:547)
+	at org.eclipse.debug.ui.actions.AbstractLaunchHistoryAction.getToolTip(AbstractLaunchHistoryAction.java:238)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.pde.core 4 0 2024-09-21 19:57:34.795
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.pde.internal.core.PDECore.stop() of bundle org.eclipse.pde.core.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:913)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1071)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:392)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:2115)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1985)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:281)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:222)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:212)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:240)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.eclipse.pde.internal.core.PluginModelManager.initializeTable(PluginModelManager.java:604)
+	at org.eclipse.pde.internal.core.PluginModelManager.getEntryTable(PluginModelManager.java:549)
+	at org.eclipse.pde.internal.core.PluginModelManager.findEntry(PluginModelManager.java:1018)
+	at org.eclipse.pde.internal.core.PluginModelManager.findModel(PluginModelManager.java:1043)
+	at org.eclipse.pde.core.plugin.PluginRegistry.findModel(PluginRegistry.java:103)
+	at org.eclipse.pde.internal.core.JavaElementChangeListener.save(JavaElementChangeListener.java:148)
+	at org.eclipse.pde.internal.core.JavaElementChangeListener.shutdown(JavaElementChangeListener.java:58)
+	at org.eclipse.pde.internal.core.PDECore.stop(PDECore.java:380)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:893)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:885)
+	... 13 more
+Caused by: java.lang.IllegalStateException: The Plug-in Development Environment requires the PlatformAdmin service to operate. Please install the compatibility fragment 'org.eclipse.osgi.compatibility.state'.
+	at org.eclipse.pde.internal.build.BundleHelper.getPlatformAdmin(BundleHelper.java:84)
+	at org.eclipse.pde.internal.core.MinimalState.<clinit>(MinimalState.java:83)
+	... 25 more
+Root exception:
+java.lang.ExceptionInInitializerError
+	at org.eclipse.pde.internal.core.PluginModelManager.initializeTable(PluginModelManager.java:604)
+	at org.eclipse.pde.internal.core.PluginModelManager.getEntryTable(PluginModelManager.java:549)
+	at org.eclipse.pde.internal.core.PluginModelManager.findEntry(PluginModelManager.java:1018)
+	at org.eclipse.pde.internal.core.PluginModelManager.findModel(PluginModelManager.java:1043)
+	at org.eclipse.pde.core.plugin.PluginRegistry.findModel(PluginRegistry.java:103)
+	at org.eclipse.pde.internal.core.JavaElementChangeListener.save(JavaElementChangeListener.java:148)
+	at org.eclipse.pde.internal.core.JavaElementChangeListener.shutdown(JavaElementChangeListener.java:58)
+	at org.eclipse.pde.internal.core.PDECore.stop(PDECore.java:380)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:893)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:885)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1071)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:392)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:2115)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1985)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:281)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:222)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:212)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:240)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalStateException: The Plug-in Development Environment requires the PlatformAdmin service to operate. Please install the compatibility fragment 'org.eclipse.osgi.compatibility.state'.
+	at org.eclipse.pde.internal.build.BundleHelper.getPlatformAdmin(BundleHelper.java:84)
+	at org.eclipse.pde.internal.core.MinimalState.<clinit>(MinimalState.java:83)
+	... 25 more
+!SESSION 2024-09-21 20:05:22.532 -----------------------------------------------
+eclipse.buildId=4.22.0.202403071427
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-09-21 20:05:24.642
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-09-21 20:05:24.974
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-09-21 20:05:27.522
+!MESSAGE Logback config file: C:\Users\pc\OneDrive\Desktop\itgorae\java\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.ui 2 0 2024-09-21 20:05:28.146
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-09-21 20:05:28.146
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2024-09-21 20:05:28.613
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-09-21 20:05:28.613
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-09-21 20:05:31.716
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\sts-4.22.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.10.v20240120-1143\jre\bin\javaw.exe
+-cp
+C:\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\classes;C:\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=C:/Users/pc/OneDrive/Desktop/itgorae/java/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1726916731715
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-09-21 20:05:31.717
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-09-21 20:05:31.732
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 23160
+
+!ENTRY org.eclipse.debug.ui 4 120 2024-09-21 20:05:32.670
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+org.xml.sax.SAXParseException; lineNumber: 18; columnNumber: 2; 요소 콘텐츠는 올바른 형식의 문자 데이터 또는 마크업으로 구성되어야 합니다.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.startOfMarkup(XMLDocumentFragmentScannerImpl.java:2589)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2679)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:247)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationManager.restoreLaunchHistory(LaunchConfigurationManager.java:497)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationManager.loadLaunchHistories(LaunchConfigurationManager.java:1055)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationManager.getLaunchHistory(LaunchConfigurationManager.java:1027)
+	at org.eclipse.debug.ui.actions.AbstractLaunchHistoryAction.internalGetHistory(AbstractLaunchHistoryAction.java:547)
+	at org.eclipse.debug.ui.actions.AbstractLaunchHistoryAction.getToolTip(AbstractLaunchHistoryAction.java:238)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-09-21 20:05:33.798
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\pc'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-09-21 22:11:37.553
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.pde.core 4 0 2024-09-21 22:21:33.058
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.pde.internal.core.PDECore.stop() of bundle org.eclipse.pde.core.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:913)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1071)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:392)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:2115)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1985)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:281)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:222)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:212)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:240)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.eclipse.pde.internal.core.PluginModelManager.initializeTable(PluginModelManager.java:604)
+	at org.eclipse.pde.internal.core.PluginModelManager.getEntryTable(PluginModelManager.java:549)
+	at org.eclipse.pde.internal.core.PluginModelManager.findEntry(PluginModelManager.java:1018)
+	at org.eclipse.pde.internal.core.PluginModelManager.findModel(PluginModelManager.java:1043)
+	at org.eclipse.pde.core.plugin.PluginRegistry.findModel(PluginRegistry.java:103)
+	at org.eclipse.pde.internal.core.JavaElementChangeListener.save(JavaElementChangeListener.java:148)
+	at org.eclipse.pde.internal.core.JavaElementChangeListener.shutdown(JavaElementChangeListener.java:58)
+	at org.eclipse.pde.internal.core.PDECore.stop(PDECore.java:380)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:893)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:885)
+	... 13 more
+Caused by: java.lang.IllegalStateException: The Plug-in Development Environment requires the PlatformAdmin service to operate. Please install the compatibility fragment 'org.eclipse.osgi.compatibility.state'.
+	at org.eclipse.pde.internal.build.BundleHelper.getPlatformAdmin(BundleHelper.java:84)
+	at org.eclipse.pde.internal.core.MinimalState.<clinit>(MinimalState.java:83)
+	... 25 more
+Root exception:
+java.lang.ExceptionInInitializerError
+	at org.eclipse.pde.internal.core.PluginModelManager.initializeTable(PluginModelManager.java:604)
+	at org.eclipse.pde.internal.core.PluginModelManager.getEntryTable(PluginModelManager.java:549)
+	at org.eclipse.pde.internal.core.PluginModelManager.findEntry(PluginModelManager.java:1018)
+	at org.eclipse.pde.internal.core.PluginModelManager.findModel(PluginModelManager.java:1043)
+	at org.eclipse.pde.core.plugin.PluginRegistry.findModel(PluginRegistry.java:103)
+	at org.eclipse.pde.internal.core.JavaElementChangeListener.save(JavaElementChangeListener.java:148)
+	at org.eclipse.pde.internal.core.JavaElementChangeListener.shutdown(JavaElementChangeListener.java:58)
+	at org.eclipse.pde.internal.core.PDECore.stop(PDECore.java:380)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:893)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:885)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1071)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:392)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:2115)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1985)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:281)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:222)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:212)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:240)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalStateException: The Plug-in Development Environment requires the PlatformAdmin service to operate. Please install the compatibility fragment 'org.eclipse.osgi.compatibility.state'.
+	at org.eclipse.pde.internal.build.BundleHelper.getPlatformAdmin(BundleHelper.java:84)
+	at org.eclipse.pde.internal.core.MinimalState.<clinit>(MinimalState.java:83)
+	... 25 more
