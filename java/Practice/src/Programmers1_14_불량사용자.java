@@ -4,7 +4,6 @@ import java.util.HashSet;
  * 1. depth와 
  */
 
-
 class Solution {
 
     // 사용자 아이디와 불량 사용자 아이디 배열, 방문 여부를 저장할 visited 배열
@@ -69,6 +68,7 @@ class Solution {
             if (bannedId.charAt(i) != '*' && userId.charAt(i) != bannedId.charAt(i)) {
                 match = false;
                 break;
+                
             }
         }
 

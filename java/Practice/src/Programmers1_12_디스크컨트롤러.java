@@ -10,8 +10,13 @@ class Solution {
 		int end = 0; // 수행되고난 직후의 시간
 		int jobsIdx = 0; // jobs 배열의 인덱스
 		int count = 0; // 수행된 요청 갯수
-
+   
 		// 원본 배열 오름차순 정렬 (요청시간 오름차순)
+		/**
+		 * [0,3]
+		 * [1,9]
+		 * [2,6]
+		 */
 		Arrays.sort(jobs, (o1, o2) -> o1[0] - o2[0]);
 
 		// 처리 시간 오름차순으로 정렬되는 우선순위 큐(Heap)
@@ -40,6 +45,6 @@ class Solution {
 			}
 		}
 
-		return (int) Math.floor(answer / jobs.length);
+		return answer / jobs.length;
 	}
 }
